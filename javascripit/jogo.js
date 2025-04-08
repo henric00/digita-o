@@ -5,12 +5,12 @@ const painelPontos = document.getElementById("painelPontos");
 const painelTempo = document.getElementById("painelTempo");
 
 //lista das palavras que vão aparecer no jogo
-const palavras =["matrix", "neon", "pixel"," programação", "funcional", "codigo", "bit", "nave", "bug", "byte", "terminal"]
+const palavras = ["matrix", "neon", "pixel", " programação", "funcional", "codigo", "bit", "nave", "bug", "byte", "terminal"]
 
 //como o jogo vai começar
 const estadoInicial = {
     pontos: 0,
-    tempo: 30, 
+    tempo: 30,
     palavraAtual: "",
     palavrasRestantes: [...palavras]
 }
@@ -22,17 +22,50 @@ const escolherPalavra = (estado) => {
     const novasPalavras = estado.palavrasRestantes.filter((_, i) => i !== index)
 
     return {
-        ...estado, 
+        ...estado,
         palavraAtual: palavra.trim(),
         palavrasRestantes: novasPalavras
     };
-    
+
 };
 
+// Função principal do jogo
 const iniciarJogo = () => {
+    //Escolhe uma palavra aleatória e atualiza o estado inicial
     let estado = escolherPalavra(estadoInicial);
-    painelPalavra.textContent = estado.palavraAtual;
-    painelPontos.textContent = `Pontos: ${estado.pontos}`;
-    painelTempo.textContent = `Tempo: ${estado.tempo}s`;
+    //Atualiza os elementos da interface com base no estado atual
+    atualizarInterface(estado);
+    //Coloca o foco no campo de digitação para o jogador começar
+    inputJogador.focus();
+    //Escuta a digitação do jogador em tempo real
+    inputJogador.addEventListener("input", () => {
+        const texto = inputJogador.value;
+        //Verifica se a palavra digitada está correta e gera novo estado
+        const novoEstado = verificarDigitacao(estado, texto);
+        //Se o estado mudou (acerto), atualiza o jogo
+        if (novoEstado !== estado) {
+            estado = novoEstado;
+            inputJogador.value = ""; // limpa o campo
+            atualizarInterface(estado);
+        }
+    });
+    //Inicia a contagem regressiva do tempo de jogo
+    iniciarContagem(() => {
+        //Quando o tempo acabar, desativa o input e exibe mensagem
+        inputJogador.disabled = true;
+        painelFeedback.textContent = "Fim do tempo!";
+    });
+};
+
+
+const verificarDigitacao = (estado, texto) => {
+    if (texto === estado.palavraAtual) {
+        return escolherPalavra({
+            ...estado,
+            pontos: estado.pontos + 1
+        });
+    }
+
+    return estado;
 };
 
