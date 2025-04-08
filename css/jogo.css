@@ -1,0 +1,98 @@
+body {
+    background-color: black;
+    color: #33ff33;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: linear-gradient(0deg, #0f0 1px, transparent 1px), 
+                      linear-gradient(90deg, #0f0 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: fundoGrid 1.8s linear infinite;
+  }
+  
+  @keyframes fundoGrid {
+    0% {
+      background-position: 0 0, 0 0;
+    }
+    100% {
+      background-position: 40px 40px, 40px 40px;
+    }
+  }
+  
+  
+  .tela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #33ff33;
+  }
+  
+  .quadro {
+    border: 3px solid #33ff33;
+    padding: 50px;
+    border-radius: 0;
+    box-shadow: inset 0 0 40px #33ff33;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    background-color: #000000e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  
+  .rotulo {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .painel-palavra {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    animation: piscar 1s infinite alternate;
+  }
+  
+  input#entradaJogador {
+    padding: 15px;
+    font-size: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: black;
+    color: #33ff33;
+    border: 2px solid #33ff33;
+    outline: none;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 20px;
+  }
+  
+  .feedback {
+    font-size: 1.2rem;
+    height: 1.5em;
+  }
+  
+  .painel-infos {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    font-size: 1.2rem;
+  }
+  
+  /* Animação retrô para a palavra piscando */
+  @keyframes piscar {
+    from { opacity: 1; }
+    to { opacity: 0.4; }
+  }
+  
