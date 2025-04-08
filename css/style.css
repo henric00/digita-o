@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: #00ffcc;
+  font-family: 'Press Start 2P', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.tela {
+  background: #222;
+  border: 3px solid #00ffcc;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+input[type=\"text\"] {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border: 2px solid #00ffcc;
+  background-color: #000;
+  color: #00ffcc;
+  text-align: center;
+}
+
+button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #00ffcc;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #00bfa6;
+}
+
+.erro {
+  color: #ff4444;
+  font-size: 0.6rem;
+  margin-top: 0.5rem;
+  min-height: 1.2rem;
+}
+input[type="text"] {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border: 3px solid #00ffcc;
+    border-radius: 8px;
+    background-color: #111;
+    color: #00ffcc;
+    text-align: center;
+    box-shadow: 0 0 10px #00ffcc;
+    outline: none;
+  }
+  
+  button {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #00ffcc;
+    color: #000;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 0 8px #00ffcc;
+  }
+  @keyframes piscar {
+    0% { opacity: 1; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1; }
+  }
+  
+  .piscar {
+    animation: piscar 0.5s infinite steps(2, start);
+  }
+  
